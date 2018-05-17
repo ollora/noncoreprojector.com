@@ -1,16 +1,20 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
+  "name": "noncoreprojector.com",
+  "description": "Website for artist collective NonCore Projector",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "serve": "gatsby serve"
+    "serve": "gatsby serve",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "gatsby": "^1.9.250",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-typography": "^1.7.18",
     "lodash": "^4.17.10"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0"
   }
 }
