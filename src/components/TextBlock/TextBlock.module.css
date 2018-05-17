@@ -1,0 +1,21 @@
+.container {
+  text-align: center;
+  padding-top: 50px;
+  white-space: nowrap;
+}
+
+.pageTitle {
+  font-weight: 700;
+  color: black;
+}
+
+.fillerChar {
+  opacity: 1;
+  transition: opacity 5s;
+  cursor: default;
+}
+
+.fillerChar:hover {
+  transition: opacity 0s;
+  opacity: 0;
+}
