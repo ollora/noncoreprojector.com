@@ -8,5 +8,8 @@ export default (props) => {
   if (props.to) {
     return <Link to={props.to}>{props.children}</Link>;
   }
-  return <span>{props.children}</span>;
+  return
+    <span style={{fontWeight: 200}}>
+      {props.children}
+    </span>;
 };

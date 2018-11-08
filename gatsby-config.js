@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: `/noncoreprojector.com`,
+  // pathPrefix: `/noncoreprojector.com`,
   plugins: [
     {
       resolve: `gatsby-plugin-typography`,

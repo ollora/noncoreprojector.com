@@ -1,23 +1,21 @@
-import React from 'react';
-import CustomLink from '../CustomLink/index.js';
-import _ from 'lodash';
+import React from "react";
+import CustomLink from "../CustomLink/index.js";
+import _ from "lodash";
 
 import styles from "./TextBlock.module.css";
 
-const specialChars =  '+-&|!(){}[]^,~*?:'.split('');
+const specialChars = "+-&|!(){}[]^,~*?:".split("");
 
-const SpecialChar = (props) => (
-  <span
-    className={styles.fillerChar}
-    aria-hidden="true"
-  >
+const SpecialChar = props => (
+  <span className={styles.fillerChar} aria-hidden="true">
     {props.char}
   </span>
 );
 
-function TextBlock (props) {
+function TextBlock(props) {
   const { width, height, pageData } = props;
-  const chosenChar = specialChars[parseInt(Math.random() * specialChars.length)]
+  const chosenChar =
+    specialChars[parseInt(Math.random() * specialChars.length)];
 
   const getCharRow = len => {
     const cols = [];
@@ -35,14 +33,14 @@ function TextBlock (props) {
     rows.push(<span>{cols}</span>);
   }
 
-  const setTextInRow = (label, index, linkProps) => {
+  const setTextInRow = (text, index) => {
     const rowIndex = randomRows[index];
     const colIndex = parseInt(Math.random() * width);
-    
+
     let leftLen = colIndex;
-    let rightLen = width - label.length - colIndex;
+    let rightLen = width - text.label.length - colIndex;
     if (rightLen < 0) {
-      leftLen += rightLen;      
+      leftLen += rightLen;
       rightLen = 0;
     }
 
@@ -52,26 +50,28 @@ function TextBlock (props) {
     rows[rowIndex] = (
       <div>
         <span>{left}</span>
-        {linkProps ?
-          <CustomLink {...linkProps}>
-            {label}
-          </CustomLink>
-          :
-          <span className={styles.pageTitle}>
-            {label}
-          </span>
-        }
+        {text.isTitle ? (
+          <span className={styles.pageTitle}>{text.label}</span>
+        ) : (
+          <CustomLink {...text.props}>{text.label}</CustomLink>
+        )}
         <span>{right}</span>
       </div>
     );
-  }
+  };
 
-  setTextInRow(pageData.pageTitle, 0);
+  setTextInRow(
+    {
+      label: pageData.pageTitle,
+      isTitle: true
+    },
+    0
+  );
 
   pageData.links.forEach((link, i) => {
-    setTextInRow(link.label, i+1, link.props)
+    setTextInRow(link, i + 1);
   });
-  
+
   return (
     <div>
       <div className={styles.container}>

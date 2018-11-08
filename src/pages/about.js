@@ -10,7 +10,6 @@ const pageData = {
     },
     {
       label: 'JACK COLTON',
-      props: { href: 'https://www.instagram.com/jakecalcium/?hl=en' }
     },
     {
       label: 'ROLLO CARPENTER',
