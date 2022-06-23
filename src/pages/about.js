@@ -13,7 +13,7 @@ const pageData = {
     },
     {
       label: 'ROLLO CARPENTER',
-      props: { href: 'http://www.cleverbot.com/' }
+      props: { href: 'https://www.instagram.com/rollocarpenter/' }
     },
     {
       label: `JOHN O'CONNOR`,
